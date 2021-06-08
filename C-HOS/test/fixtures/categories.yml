@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_name: MyString
+  categorized_post_id: 1
+  category_user_id: 1
+
+two:
+  category_name: MyString
+  categorized_post_id: 1
+  category_user_id: 1
