@@ -1,0 +1,39 @@
+<h1>カテゴリ</h1>
+<h3>新規作成</h3>
+
+<%= form_for @category do |f| %>
+    <div class="field">
+        <%= f.label :カテゴリ %>
+        <%= f.text_field :category_name, :size => 140 %>
+    </div>
+    <%= f.submit "追加" %>
+<% end %>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>カテゴリ名</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @categories.each do |category| %>
+        <tr>
+            <td>
+                <%= category.id %>
+                <%= category.category_name %>
+            </td>
+            <td>
+            <%= link_to "投稿の表示", categories_index_path %>
+            </td>
+            <td>
+            <%= link_to "編集", edit_category_path(category) %>
+            </td>
+            <td>
+            <%= link_to "削除", category_path(category), :method => :delete %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
