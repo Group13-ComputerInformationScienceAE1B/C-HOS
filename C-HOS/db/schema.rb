@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2021_06_08_071348) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "commed_user_id"
+    t.integer "commed_post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "follows", force: :cascade do |t|
     t.integer "followed_category_id"
     t.integer "followed_user_id"
