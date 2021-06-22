@@ -1,0 +1,12 @@
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+    </br>■
+    <span><%= link_to post.title, "/posts/#{post.id}" %></span>
+    
+    </br>
+    ------------------------------------------------------------
+    </br>
+<% end %>
+
+<%= link_to '新規投稿', :controller => "posts", :action => "new" %>
+
