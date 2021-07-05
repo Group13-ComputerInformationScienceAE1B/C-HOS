@@ -29,6 +29,10 @@ class CategoriesController < ApplicationController
         @category.update(category_params)
         redirect_to categories_index_path
     end
+
+    def followers
+        @user = User.find_by(id: params[:id])
+    end
     
 private
     def category_params
