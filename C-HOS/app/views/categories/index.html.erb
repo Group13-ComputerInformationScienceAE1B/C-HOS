@@ -1,39 +1,26 @@
-<h1>カテゴリ</h1>
-<h3>新規作成</h3>
-
-<%= form_for @category do |f| %>
-    <div class="field">
-        <%= f.label :カテゴリ %>
-        <%= f.text_field :category_name, :size => 140 %>
-    </div>
-    <%= f.submit "追加" %>
-<% end %>
-
-
-
-<table>
-    <thead>
-        <tr>
-            <th>カテゴリ名</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @categories.each do |category| %>
-        <tr>
+<div class="wrop">
+    <%= form_with model: @category, local: true do |f| %>
+            <%= f.label :New_category_name %></br>
+            <%= f.text_field :category_name, class:"category-form" %>
+            <%= f.submit "Add new category", class: "update" %>
+    <% end %>
+    <% @categories.each do |category| %>
+        <div class="content">
+        <table>
+        <tbody>
             <td>
-                <%= category.id %>
                 <%= category.category_name %>
             </td>
             <td>
-            <%= link_to "投稿の表示", categories_index_path %>
+                <%= button_to("view", "/categories/#{category.id}",{class:"show-btn"}) %>
             </td>
             <td>
-            <%= link_to "編集", edit_category_path(category) %>
+                <%= button_to("edit","/categories/#{category.id}/edit",{method: "category",class:"edit-btn"}) %>
             </td>
             <td>
-            <%= link_to "削除", category_path(category), :method => :delete %>
+                <%= button_to("delete","/categories/#{category.id}/destroy",{method: "category",class:"destroy-btn"}) %>
             </td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+        </tbody>
+        </table>
+        </div>
+    <% end %>

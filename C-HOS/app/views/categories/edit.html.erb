@@ -1,10 +1,8 @@
-<h1>カテゴリ</h1>
-<h3>編集</h3>
-
+</br></br>
 <%= form_with model: @category, url: category_path do |f| %>
-    <div class="field">
-        <%= f.label :カテゴリ名 %>
-        <%= f.text_field :category_name, :placeholder =>"#{@category.category_name}", :size => 140 %>
+    <div>
+        <%= f.label :カテゴリ名変更 %></br>
+        <%= f.text_field :category_name, :placeholder =>"#{@category.category_name}",  class:"category-form" %>
+        <%= f.submit "Edit name", class: "update"  %>
     </div>
-    <%= f.submit "保存" %>
 <% end %>
