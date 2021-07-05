@@ -1,3 +1,56 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+form {
+    width: 60%;
+    margin: auto;
+    padding-top: 1%;
+}
+label {
+    font-size: 18px;
+}
+
+.category-form {
+    width: 55%;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0rem;
+    margin-bottom: 20px;
+    padding: 1%;
+}
+.update {
+    width: 30%;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin-bottom: 20px;
+    padding: 1%;
+}
+
+.content {
+    transform: translateY(45%) translateX(35%);
+    padding: 1.2em;
+    font-size: 18px;
+    background-color: #f1ebeb;
+    border-radius: 1rem;
+    margin: 0.5em auto;
+    height: 50px;
+    width: 50%;
+    display: inline-flex;
+}
+.show-btn {
+    float: right;
+}
+.edit-btn {
+    float: right;
+}
+
+.destroy-btn {
+    float: right;
+    color: #ccc;
+    background-color: #ce0e0e;
+}
+table {
+    float: right;
+    width: 1000px;
+}

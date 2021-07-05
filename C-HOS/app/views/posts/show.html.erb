@@ -1,14 +1,13 @@
 <h2>タイトル</h2>
-<p><%= @showpost.title %></p>
+<p><%= @post.title %></p>
 <h2>本文</h2>
-<p><%= @showpost.overview %></p>
+<p><%= @post.overview %></p>
 <h2>画像</h2>
-<% if @showpost.img? %>
-    <p><%= image_tag @showpost.img.url %></p>
+<% if @post.img? %>
+    <p><%= image_tag @post.img.url %></p>
 <% else %>
     <p>Noimage</p>
 <% end %>
-<%= link_to("編集", "/posts/#{@showpost.id}/edit") %><br>
-
-<%= button_to("削除","/posts/#{@showpost.id}/destroy",{method: "post"}) %>
-<%= link_to '投稿一覧へ', :controller => "posts", :action => "index" %>
+<%= link_to("編集", "/posts/#{@post.id}/edit") %><br>
+<%= button_to("削除","/posts/#{@post.id}/destroy",{method: "post"}) %>
+<%= link_to '投稿一覧へ', "/categories/#{@post.category_id}" %></span>
