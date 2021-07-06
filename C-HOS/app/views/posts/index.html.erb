@@ -1,6 +1,5 @@
-</br>
-------------------------------------------------------------
-</br>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<h1>投稿一覧</h1>
 <% @posts.each do |post| %>
     <span>
     <%= @category.category_name %>

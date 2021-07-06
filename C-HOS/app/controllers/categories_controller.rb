@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
         @category.update(category_params)
         redirect_to categories_index_path
     end
-    
+
 private
     def category_params
         params.require(:category).permit(:category_name)
