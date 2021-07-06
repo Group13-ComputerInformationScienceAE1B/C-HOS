@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_071348) do
+ActiveRecord::Schema.define(version: 2021_07_05_165900) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
@@ -51,12 +51,21 @@ ActiveRecord::Schema.define(version: 2021_06_08_071348) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "post_caregories", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_post_caregories_on_category_id"
+    t.index ["post_id"], name: "index_post_caregories_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "overview"
     t.string "img"
     t.integer "posted_user_id"
-    t.integer "posted_category_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -76,4 +85,6 @@ ActiveRecord::Schema.define(version: 2021_06_08_071348) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "post_caregories", "categories"
+  add_foreign_key "post_caregories", "posts"
 end

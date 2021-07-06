@@ -1,20 +1,29 @@
-<h1>新規投稿</h1>
 
-<%= form_for @newpost,:url => {:action => :create} do |f| %>
-    <div class="field">
-        <%= f.label :タイトル %><br/>
-        <%= f.text_field :title, :size => 100 %>
-    </div>
-    <div class="field">
-        <%= f.label :本文 %><br/>
-        <%= f.text_area :overview, size: "90x10" %>
-    </div>
-        <%= f.label :画像 %><br/>
-        <%= f.file_field :img, class: "image" %>
-    <br/>
-    <br/>
 
-    <%=f.submit "投稿する" %>
+<div class="col-sm-12">
+    <h2 class="text-center">新規投稿</h2>
+    <%= form_with model: @post, local: true do |f| %>
+        <div class="form_input">
+        <%= f.label :カテゴリ %><br/>
+        <%= f.collection_select :category_id, Category.all, :id, :category_name %>
+        </div>
+        <div class="form_input">
+            <%= f.label :タイトル %><br/>
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form_input">
+            <%= f.label :本文 %><br/>
+            <%= f.text_area :overview, class: "form-control" %>
+        </div>
+        <div class="form_input">
+            <%= f.label :画像 %><br/>
+            <%= f.file_field :img, class: "image" %>
+        </div>
+
+        <div class="form_action row"><br/>
+        <%= f.submit "投稿する", class: "btn col-sm-12 submit_btn" %>
+        </div>
+    <% end %>
 
     <%= link_to '戻る', :controller => "posts", :action => "index" %>
-<% end %>
+</div>

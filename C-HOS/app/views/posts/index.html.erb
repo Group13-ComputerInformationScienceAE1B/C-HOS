@@ -1,13 +1,16 @@
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <h1>投稿一覧</h1>
 <% @posts.each do |post| %>
-    </br>■
-    <span><%= link_to post.title, "/posts/#{post.id}" %></span>
-    
+    <span>
+    <%= @category.category_name %>
+    _
+    <%= link_to post.title, "/posts/#{post.id}" %></span>
     </br>
     ------------------------------------------------------------
     </br>
 <% end %>
+            
 
-<%= link_to '新規投稿', :controller => "posts", :action => "new" %>
+<%= link_to '新規投稿', :controller => "posts", :action => "new" %></br>
+<%= link_to 'カテゴリ管理画面へ', :controller => "categories", :action => "index" %>
 

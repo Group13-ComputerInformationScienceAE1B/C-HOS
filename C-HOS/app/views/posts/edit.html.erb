@@ -1,16 +1,20 @@
 <h1>投稿編集</h1>
 <%= form_with model: @editpost, url: post_path do |f| %>
-  <div class="field">
-      <%= f.label :タイトル %><br>
-      <%= f.text_field :title, :placeholder =>"#{@editpost.title}", :size => 100 %>
-  </div>
-  <div class="field">
-  <%= f.label :本文 %><br>
-  <%= f.text_area :overview, :placeholder =>"#{@editpost.overview}", size: "90x10" %>
-  </div>
-  <%= f.label :画像 %><br>
-  <%= f.file_field :img,:placeholder =>"#{@editpost.img}", class: "image" %><br>
-  <%= f.submit "保存" %>
+    <div class="field">
+        <%= f.label :カテゴリ %><br/>
+        <%= f.collection_select :category_id, Category.all, :id, :category_name %>
+    </div>
+    <div class="field">
+        <%= f.label :タイトル %><br>
+        <%= f.text_field :title, :placeholder =>"#{@editpost.title}", :size => 100 %>
+    </div>
+    <div class="field">
+        <%= f.label :本文 %><br>
+        <%= f.text_area :overview, :placeholder =>"#{@editpost.overview}", size: "90x10" %>
+    </div>
+    <%= f.label :画像 %><br>
+    <%= f.file_field :img,:placeholder =>"#{@editpost.img}", class: "image" %><br>
+    <%= f.submit "保存" %>
 <% end %>
 <%= link_to("戻る", "/posts/#{@editpost.id}") %>
 
