@@ -30,10 +30,6 @@ class CategoriesController < ApplicationController
         redirect_to categories_index_path
     end
 
-    def followers
-        @user = User.find_by(id: params[:id])
-    end
-    
 private
     def category_params
         params.require(:category).permit(:category_name)
